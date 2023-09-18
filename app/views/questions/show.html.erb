@@ -3,30 +3,31 @@
   Title:<br>
   <%= @question.title %>
 </p>
+
 <p>
   Name:<br>
   <%= @question.name %>
 </p>
+
 <p>
   Content:<br>
   <%= @question.content %>
 </p>
 
 <h2>Answers</h2>
-<%= @question.answers.each do |answer| %>
+<% @question.answers.each do |answer| %>
   <p>
     Name:<br>
-      <%= answer.name %>
+    <%= answer.name %>
   </p>
   <p>
     Content:<br>
-      <%= answer.content %>
+    <%= answer.content %>
   </p>
   <p>
-    <%= link_to 'Destroy_Answer', [answer.question,answer],
-    data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'Destroy Answer', [answer.question, answer],
+      data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
   </p>
-  
 <% end %>
 
 <h2>Add a answer</h2>
@@ -35,7 +36,7 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
-  <div>
+   <div>
     <%= form.label :content %><br>
     <%= form.text_area :content %>
   </div>
